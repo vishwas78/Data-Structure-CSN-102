@@ -1,0 +1,120 @@
+//This program deals with search and sort algorithm in a linear list (of Array)
+
+#include <iostream>
+using namespace std;
+
+int binarySearchForIncreasingArray(int, int*, int);
+void selectionSort(int*, int);
+void printArray(int*, int);
+void bubbleSort(int*, int);
+
+int main(){
+  
+  int size,searchingElement;
+  char flag = 'y'; 
+  cout<<"Enter the size of the array: ";
+  cin>>size;
+  int a[size];
+  for(int i=0; i<size; i++){
+    cout<<"Enter a["<<i<<"]: ";
+    cin>>a[i];
+  }
+  cout<<"Array input complete\n";
+
+  // selectionSort(a, size);
+  bubbleSort(a, size);
+  while (flag=='y' || flag == 'Y'){
+    cout<<"Enter the no. to be searched: ";
+    cin>>searchingElement;
+    cout<<"\n"<<binarySearchForIncreasingArray(searchingElement,a, size);
+    cout<<"\nWant to enter again (y/n)? ";
+    cin>>flag;
+  }
+  cout<<"\nEnd of program\n";
+  return 0;
+} //end of main()
+
+
+//-----------------------------------------------------------------------------
+int binarySearchForIncreasingArray(int n, int a[], int size){
+  int low = 0;
+  int high = size-1;
+  int mid;
+  while (low<=high){
+    mid = (low + high)/2;
+    if(n == a[mid]) return mid;
+    else if(n>a[mid]){
+      low = mid +1;
+    }
+    else {
+      high = mid -1;
+    }
+  }
+  
+  return -1;
+}
+
+//-----------------------------------------------------------------------------
+int binarySearchForDreasingArray(int n, int a[], int size){
+  int low = 0;
+  int high = size-1;
+  int mid;
+  while (low<=high){
+    mid = (low + high)/2;
+    if(n == a[mid]) return mid;
+    else if(n<a[mid]){
+      low = mid +1;
+    }
+    else {
+      high = mid -1;
+    }
+  }
+  
+  return -1;
+}
+
+//-----------------------------------------------------------------------------
+void printArray(int ar[], int size){
+  for(int i=0; i<size; i++){
+    cout<<ar[i]<<" ";
+  }
+  cout<<"\n";
+}
+
+//-----------------------------------------------------------------------------
+void selectionSort(int ar[], int size){
+  cout<<"\nSelection Sort\n";
+  int min,pos;
+  for(int i=0; i<size; i++){
+    min = ar[i];
+    pos = i;
+    for(int j =i+1; j< size; j++){
+      if(min>ar[j]){
+        min = ar[j];
+        pos = j;
+      }
+    }
+    min = ar[i];
+    ar[i] = ar[pos];
+    ar[pos] = min;
+  }
+  printArray(ar, size);
+}
+
+//-----------------------------------------------------------------------------
+void bubbleSort(int ar[], int size){
+  cout<<"\nBubble Sort\n";
+  int temp;
+  for(int i=0; i<size; i++){
+    for(int j=0; j<(size-1-i); j++){
+      if(ar[j] > ar[j+1]){
+        temp = ar[j];
+        ar[j] = ar[j+1];
+        ar[j+1] = temp;
+      }
+    }
+  }
+  printArray(ar, size);
+}
+
+
