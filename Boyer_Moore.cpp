@@ -29,6 +29,7 @@ void search(char *txt, char *pat)
     badCharHeuristic(pat, m, badchar);
 
     int s = 0;
+    
     while (s <= (n - m))
     {
         int j = m - 1;
@@ -53,6 +54,10 @@ int main()
     search(txt, pat);
     return 0;
 }
+
+
+
+
 
 /*
 OUTPUT: Pattern match at shift = 4
