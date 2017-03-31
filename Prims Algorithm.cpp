@@ -3,8 +3,14 @@
 
 #include <iostream>
 #include <climits>
+
+
+
 #define n 6
 using namespace std;
+
+
+
 
 // Printing the MST
 void printMST(int a[n], int b[n], int weight[n])
@@ -18,6 +24,10 @@ void printMST(int a[n], int b[n], int weight[n])
     }
     cout << "Minimum Weight is " << Minweight << endl; // Printing the weight of MINIMUM SPANNING TREE
 }
+
+
+
+
 
 void prim(int cost[n][n]) // Function performing prim's algorithm
 {
@@ -64,6 +74,10 @@ void prim(int cost[n][n]) // Function performing prim's algorithm
         cost[u][v] = cost[v][u] = INT_MAX; // Edges getting included in MST will be given the weight of INFINITE
     }
 
+
+    
+    
+    
     printMST(a, b, weight); // Printing the MST
 }
 
@@ -71,6 +85,11 @@ void prim(int cost[n][n]) // Function performing prim's algorithm
 int main()
 {
 
+    
+    
+    
+    
+    
 /* Let us create the following graph
 
      (1)____1___(2)
@@ -114,3 +133,4 @@ Edge: 5-4 cost: 2
 Edge: 5-3 cost: 5
 Minimum Weight is 15
 */
+
