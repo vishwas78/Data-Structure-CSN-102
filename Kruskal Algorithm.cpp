@@ -2,10 +2,15 @@
 
 #include <iostream>
 #include <climits>
+
+
 #define n 6
 int parent[n]; // Parent array to hold the parent nodes of each node in the graph
 
+
 using namespace std;
+
+
 
 void printMST(int a[n], int b[n], int weight[n]) // Printing the MST
 {
@@ -27,16 +32,23 @@ int findParent(int node) // Function to determine the parent node
     return node;
 }
 
+
+
+
 /* "findParentPathCompression" is an alternative for "findParent" which is more efficient.
  * We use a technique called "path compression" here.
  * With path compression, we destroy the structure of the tree, and only focus on which group a node is in.
  */
+
+
 
 int findParentPathCompression(int node)
 {
     if(node == parent[node]) return node;
     return parent[node] = findParentPathCompression(parent[node]);
 }
+
+
 
 
 void kruskal(int cost[n][n]) // Function performing Kruskal's algorithm
@@ -75,6 +87,8 @@ void kruskal(int cost[n][n]) // Function performing Kruskal's algorithm
         v = findParent(secondNode);
 
 
+
+        
         if (u != v) // If parents of both the nodes are different, no circuit is being formed
         {
             parent[v] = u;
@@ -95,7 +109,11 @@ void kruskal(int cost[n][n]) // Function performing Kruskal's algorithm
 int main()
 {
 
-/* Let the given graph is :
+
+    
+    
+    
+    /* Let the given graph is :
 
      (1)____1___(2)
     /  \       /  \
@@ -127,6 +145,9 @@ int main()
     kruskal(cost);
     return 0;
 }
+
+
+
 
 /*
 Output :
