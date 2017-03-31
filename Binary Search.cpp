@@ -3,6 +3,7 @@
 using namespace std;
 
 // Function for binary search
+
 int Binary_Search(int array[], int size, int desired)
 {
     int left = 0, right = size - 1, middle;
@@ -19,6 +20,7 @@ int Binary_Search(int array[], int size, int desired)
             left = middle + 1;
     }
 
+    
     return -1;
 }
 
