@@ -30,8 +30,6 @@
 
     // A[ra..rb][ca..cb] .. the 4 corners of a matrix.
 
-     
-
     // set A[a] = I
 
     void identity(mat A, corners a)
